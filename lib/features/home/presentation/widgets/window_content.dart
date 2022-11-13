@@ -31,7 +31,7 @@ class _WindowContentState extends State<WindowContent> {
     duration = const Duration(milliseconds: 300);
 
     timer = Timer.periodic(duration, reverseCursor);
-    promptInput = userName + userInput + "_";
+    promptInput = "$userName${userInput}_";
   }
 
   void reverseCursor(Timer t) {
@@ -59,36 +59,42 @@ class _WindowContentState extends State<WindowContent> {
     return Flexible(
       child: GestureDetector(
         onTap: () => textInputFocusNode.requestFocus(),
-        child: Container(
-          width: double.infinity,
-          decoration: FgadeaBoxDecorations.promptDecoration,
-          child: ListView(
-            controller: promptScrollController,
-            children: [
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: lines.length,
-                itemBuilder: ((context, index) {
-                  return lines[index];
-                }),
-              ),
-              userInputWidget()
-            ],
+        child: userInputWidget(
+          child: Container(
+            width: double.infinity,
+            decoration: FgadeaBoxDecorations.promptDecoration,
+            child: ListView(
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 6),
+              controller: promptScrollController,
+              children: [
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: lines.length,
+                  itemBuilder: ((context, index) {
+                    return lines[index];
+                  }),
+                ),
+                Text(promptInput)
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget userInputWidget() => RawKeyboardListener(
+  Widget userInputWidget({required Widget child}) => RawKeyboardListener(
         autofocus: true,
         onKey: (value) {
           if (value.isKeyPressed(LogicalKeyboardKey.enter) &&
               userInput.isNotEmpty) {
             lines.add(Text(
-              userInput,
+              "$userName$userInput",
               textAlign: TextAlign.left,
             ));
+            lines.add(
+              commandInterpreter(userInput),
+            );
             userInput = "";
           } else if (value.isKeyPressed(LogicalKeyboardKey.backspace) &&
               userInput.isNotEmpty) {
@@ -100,8 +106,35 @@ class _WindowContentState extends State<WindowContent> {
           setState(() {
             promptInput = "$userName${userInput}_";
           });
+          promptScrollController.animateTo(
+              promptScrollController.position.maxScrollExtent,
+              duration: const Duration(milliseconds: 100),
+              curve: Curves.linear);
         },
         focusNode: textInputFocusNode,
-        child: Text(promptInput),
+        child: child,
       );
+
+  Text commandInterpreter(String command) {
+    switch (command) {
+      case "dir":
+        return const Text(
+          "You wrote a command for listing directories",
+          style: TextStyle(color: Colors.white),
+        );
+      case "help":
+      case "h":
+      case "-h":
+      case "-help":
+        return const Text(
+          "This is correct command for help.",
+          style: TextStyle(color: Colors.white),
+        );
+      default:
+        return Text(
+          "$command : The term '$command' is not recognised. Verify that the command is correct and try again.",
+          style: const TextStyle(color: Colors.red),
+        );
+    }
+  }
 }
