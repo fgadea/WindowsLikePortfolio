@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'dart:html';
 
 import 'package:fgadea.dev/widgets/fgadea_box_decorations.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class WindowContent extends StatefulWidget {
   const WindowContent({super.key});
@@ -13,13 +16,22 @@ class WindowContent extends StatefulWidget {
 class _WindowContentState extends State<WindowContent> {
   late Duration duration;
   late Timer timer;
+  late FocusNode textInputFocusNode;
+  final ScrollController promptScrollController = ScrollController();
+  String promptInput = "";
+  String userInput = "";
+  String userName = "fgadea.dev>";
+  List<Text> lines = [];
   bool isVisible = false;
   @override
   void initState() {
     super.initState();
+    textInputFocusNode = FocusNode();
+
     duration = const Duration(milliseconds: 300);
 
     timer = Timer.periodic(duration, reverseCursor);
+    promptInput = userName + userInput + "_";
   }
 
   void reverseCursor(Timer t) {
@@ -37,26 +49,47 @@ class _WindowContentState extends State<WindowContent> {
   @override
   Widget build(BuildContext context) {
     return Flexible(
-      child: Container(
-        decoration: FgadeaBoxDecorations.promptDecoration,
-        child: ListView.builder(
-          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
-          itemCount: 1,
-          itemBuilder: ((context, index) => Row(
-                children: [
-                  const Text(
-                    "fgadea.dev >",
-                  ),
-                  isVisible
-                      ? const Text(
-                          "_",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )
-                      : const SizedBox.shrink(),
-                ],
-              )),
+      child: GestureDetector(
+        onTap: () => textInputFocusNode.requestFocus(),
+        child: Container(
+          width: double.infinity,
+          decoration: FgadeaBoxDecorations.promptDecoration,
+          child: ListView(
+            controller: promptScrollController,
+            children: [
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: lines.length,
+                itemBuilder: ((context, index) {
+                  return lines[index];
+                }),
+              ),
+              userInputWidget()
+            ],
+          ),
         ),
       ),
     );
   }
+
+  Widget userInputWidget() => RawKeyboardListener(
+        autofocus: true,
+        onKey: (value) {
+          if (value.isKeyPressed(LogicalKeyboardKey.enter)) {
+            lines.add(Text(
+              userInput,
+              textAlign: TextAlign.left,
+            ));
+            userInput = "";
+          } else {
+            userInput += value.character ?? "";
+          }
+
+          setState(() {
+            promptInput = "$userName${userInput}_";
+          });
+        },
+        focusNode: textInputFocusNode,
+        child: Text(promptInput),
+      );
 }
