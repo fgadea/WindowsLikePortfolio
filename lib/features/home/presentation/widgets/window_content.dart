@@ -36,13 +36,18 @@ class _WindowContentState extends State<WindowContent> {
 
   void reverseCursor(Timer t) {
     setState(() {
-      isVisible = !isVisible;
+      if (promptInput.characters.last == "_") {
+        promptInput = promptInput.substring(0, promptInput.length - 1);
+      } else {
+        promptInput += "_";
+      }
     });
   }
 
   @override
   void dispose() {
     timer.cancel();
+    promptScrollController.dispose();
     super.dispose();
   }
 
@@ -75,7 +80,8 @@ class _WindowContentState extends State<WindowContent> {
   Widget userInputWidget() => RawKeyboardListener(
         autofocus: true,
         onKey: (value) {
-          if (value.isKeyPressed(LogicalKeyboardKey.enter)) {
+          if (value.isKeyPressed(LogicalKeyboardKey.enter) &&
+              userInput.isNotEmpty) {
             lines.add(Text(
               userInput,
               textAlign: TextAlign.left,
