@@ -1,7 +1,7 @@
-import 'package:fgadea_dev/features/home/presentation/widgets/window_content.dart';
-import 'package:fgadea_dev/features/home/presentation/widgets/window_title_bar.dart';
-import 'package:fgadea_dev/widgets/fgadea_box_decorations.dart';
-import 'package:fgadea_dev/widgets/fgadea_colors.dart';
+import 'package:fgadea.dev/features/home/presentation/widgets/window_content.dart';
+import 'package:fgadea.dev/features/home/presentation/widgets/window_title_bar.dart';
+import 'package:fgadea.dev/widgets/fgadea_box_decorations.dart';
+import 'package:fgadea.dev/widgets/fgadea_colors.dart';
 import 'package:flutter/material.dart';
 
 class HomePageBig extends StatefulWidget {

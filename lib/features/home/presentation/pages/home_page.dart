@@ -1,4 +1,4 @@
-import 'package:fgadea_dev/features/home/presentation/pages/home_page_big.dart';
+import 'package:fgadea.dev/features/home/presentation/pages/home_page_big.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

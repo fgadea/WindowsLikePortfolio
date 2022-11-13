@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:fgadea_dev/widgets/fgadea_box_decorations.dart';
+import 'package:fgadea.dev/widgets/fgadea_box_decorations.dart';
 import 'package:flutter/cupertino.dart';
 
 class WindowContent extends StatefulWidget {
@@ -12,19 +12,26 @@ class WindowContent extends StatefulWidget {
 
 class _WindowContentState extends State<WindowContent> {
   late Duration duration;
+  late Timer timer;
   bool isVisible = false;
+  @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     duration = const Duration(milliseconds: 300);
 
-    Timer.periodic(duration, reverseCursor);
+    timer = Timer.periodic(duration, reverseCursor);
   }
 
   void reverseCursor(Timer t) {
     setState(() {
       isVisible = !isVisible;
     });
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 
   @override

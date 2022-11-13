@@ -1,4 +1,4 @@
-import 'package:fgadea_dev/widgets/fgadea_images.dart';
+import 'package:fgadea.dev/widgets/fgadea_images.dart';
 import 'package:flutter/material.dart';
 
 class WindowTitle extends StatelessWidget {

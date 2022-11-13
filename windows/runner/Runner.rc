@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "fgadea_dev" "\0"
+            VALUE "FileDescription", "fgadea.dev" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "fgadea_dev" "\0"
+            VALUE "InternalName", "fgadea.dev" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "fgadea_dev.exe" "\0"
-            VALUE "ProductName", "fgadea_dev" "\0"
+            VALUE "OriginalFilename", "fgadea.dev.exe" "\0"
+            VALUE "ProductName", "fgadea.dev" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
