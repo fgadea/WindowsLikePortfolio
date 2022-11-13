@@ -36,6 +36,9 @@ class _WindowContentState extends State<WindowContent> {
 
   void reverseCursor(Timer t) {
     setState(() {
+      if (!textInputFocusNode.hasFocus) {
+        textInputFocusNode.requestFocus();
+      }
       if (promptInput.characters.last == "_") {
         promptInput = promptInput.substring(0, promptInput.length - 1);
       } else {
@@ -87,6 +90,9 @@ class _WindowContentState extends State<WindowContent> {
               textAlign: TextAlign.left,
             ));
             userInput = "";
+          } else if (value.isKeyPressed(LogicalKeyboardKey.backspace) &&
+              userInput.isNotEmpty) {
+            userInput = userInput.substring(0, userInput.length - 1);
           } else {
             userInput += value.character ?? "";
           }
