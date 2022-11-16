@@ -1,4 +1,4 @@
-package com.example.fgadea_dev
+package com.example.fgadea.dev
 
 import io.flutter.embedding.android.FlutterActivity
 

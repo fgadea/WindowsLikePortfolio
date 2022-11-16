@@ -1,6 +1,6 @@
-import 'package:fgadea_dev/features/home/presentation/widgets/window_buttons.dart';
-import 'package:fgadea_dev/features/home/presentation/widgets/window_title.dart';
-import 'package:fgadea_dev/widgets/fgadea_colors.dart';
+import 'package:fgadea.dev/features/home/presentation/widgets/window_buttons.dart';
+import 'package:fgadea.dev/features/home/presentation/widgets/window_title.dart';
+import 'package:fgadea.dev/widgets/fgadea_colors.dart';
 import 'package:flutter/widgets.dart';
 
 class WindowTitleBar extends StatelessWidget {
