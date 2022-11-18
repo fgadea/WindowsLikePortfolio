@@ -1,4 +1,7 @@
+import 'package:fgadea.dev/models/iterpreter_model.dart';
 import 'package:flutter/material.dart';
+
+import 'application_filesystem.dart';
 
 class CommandPrompt {
   static const String _welcome = '''
@@ -16,15 +19,31 @@ Type '-help' to show commands you can use
 
   static const String _help = "This is help";
 
-  static Text interpreter(String command) {
+  static InterpreterModel interpreter(String command) {
     String text = "";
     Color? color;
-    switch (command) {
+    List<String> commands = command.split(' ');
+    bool clear = false;
+    switch (commands.first) {
       case "welcome":
         text = _welcome;
         break;
+      case "clr":
+      case "clear":
+        clear = true;
+        break;
+      case "pwd":
+        var dir = getDirectory();
+        text = dir.path;
+        break;
+      case "ls":
       case "dir":
-        text = "You wrote a command for listing directories";
+        var dir = getDirectory();
+        text = "\nDirectory: ${dir.path}\n";
+        text += "\nName\n----\n";
+        for (final item in dir.items) {
+          text += "$item\n";
+        }
         break;
       case "help":
       case "h":
@@ -38,9 +57,10 @@ Type '-help' to show commands you can use
         color = Colors.red;
     }
 
-    return Text(
+    final textW = Text(
       text,
       style: TextStyle(color: color ?? Colors.white),
     );
+    return InterpreterModel(text: textW, clear: clear);
   }
 }
