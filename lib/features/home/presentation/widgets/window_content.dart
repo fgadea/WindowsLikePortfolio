@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:html';
 
 import 'package:fgadea.dev/common/command_prompt_commands.dart';
 import 'package:fgadea.dev/widgets/fgadea_box_decorations.dart';
@@ -34,7 +33,12 @@ class _WindowContentState extends State<WindowContent> {
     timer = Timer.periodic(duration, reverseCursor);
     Future.delayed(const Duration(seconds: 1)).then((value) async {
       setState(() {
-        lines.add(CommandPrompt.interpreter("welcome"));
+        final res = CommandPrompt.interpreter(context, "welcome");
+        if (res.clear) {
+          lines.clear();
+        } else {
+          lines.add(res.text);
+        }
         promptInput = "$userName${userInput}_";
       });
     });
@@ -99,9 +103,12 @@ class _WindowContentState extends State<WindowContent> {
             "$userName$userInput",
             textAlign: TextAlign.left,
           ));
-          lines.add(
-            CommandPrompt.interpreter(userInput),
-          );
+          final res = CommandPrompt.interpreter(context, userInput);
+          if (res.clear) {
+            lines.clear();
+          } else {
+            lines.add(res.text);
+          }
           userInput = "";
         } else if (value.isKeyPressed(LogicalKeyboardKey.backspace) &&
             userInput.isNotEmpty) {
