@@ -33,7 +33,7 @@ class _WindowContentState extends State<WindowContent> {
     timer = Timer.periodic(duration, reverseCursor);
     Future.delayed(const Duration(seconds: 1)).then((value) async {
       setState(() {
-        final res = CommandPrompt.interpreter("welcome");
+        final res = CommandPrompt.interpreter(context, "welcome");
         if (res.clear) {
           lines.clear();
         } else {
@@ -103,7 +103,7 @@ class _WindowContentState extends State<WindowContent> {
             "$userName$userInput",
             textAlign: TextAlign.left,
           ));
-          final res = CommandPrompt.interpreter(userInput);
+          final res = CommandPrompt.interpreter(context, userInput);
           if (res.clear) {
             lines.clear();
           } else {
