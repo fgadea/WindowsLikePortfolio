@@ -1,9 +1,12 @@
 import 'package:fgadea.dev/models/iterpreter_model.dart';
 import 'package:flutter/material.dart';
 
+import '../models/app_directory.dart';
 import 'application_filesystem.dart';
 
 class CommandPrompt {
+  static AppDirectory prevDir = getDirectory();
+  static AppDirectory dir = getDirectory();
   static const String _welcome = '''
 ██╗  ██╗███████╗██╗     ██╗      ██████╗ 
 ██║  ██║██╔════╝██║     ██║     ██╔═══██╗
@@ -19,7 +22,7 @@ Type '-help' to show commands you can use
 
   static const String _help = "This is help";
 
-  static InterpreterModel interpreter(String command) {
+  static InterpreterModel interpreter(BuildContext context, String command) {
     String text = "";
     Color? color;
     List<String> commands = command.split(' ');
@@ -33,16 +36,58 @@ Type '-help' to show commands you can use
         clear = true;
         break;
       case "pwd":
-        var dir = getDirectory();
         text = dir.path;
         break;
       case "ls":
       case "dir":
-        var dir = getDirectory();
         text = "\nDirectory: ${dir.path}\n";
         text += "\nName\n----\n";
-        for (final item in dir.items) {
-          text += "$item\n";
+        for (final AppDirectory? item in dir.items ?? []) {
+          text += "${item?.path.split("/").last}\n";
+        }
+        break;
+      case "cd":
+        if (commands.length == 1) {
+          text =
+              "$command : The term '$command' is not recognised. Verify that the command is correct and try again.";
+          color = Colors.red;
+          break;
+        }
+        if (commands[1] == "..") {
+          dir = prevDir;
+        } else {
+          var finalDir = dir.items?.firstWhere(
+            (element) => element.path.endsWith(
+              commands[1],
+            ),
+          );
+          if (finalDir == null) break;
+          dir = finalDir;
+        }
+        text = "\nDirectory: ${dir.path}\n";
+        text += "\nName\n----\n";
+        for (final AppDirectory? item in dir.items ?? []) {
+          text += "${item?.path.split("/").last}\n";
+        }
+        break;
+      case "open":
+        if (commands.length == 1) {
+          text =
+              "$command : The term '$command' is not recognised. Verify that the command is correct and try again.";
+          color = Colors.red;
+
+          break;
+        }
+        if (commands[1] == "resumen.pdf") {
+          showDialog(
+            context: context,
+            builder: (_) => const AlertDialog(
+              content: Text(
+                "This is under development",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+          );
         }
         break;
       case "help":
