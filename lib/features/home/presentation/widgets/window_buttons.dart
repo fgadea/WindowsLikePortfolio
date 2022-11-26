@@ -1,6 +1,5 @@
 import 'package:fgadea.dev/features/home/presentation/widgets/window_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class WindowButtons extends StatelessWidget {
   final EdgeInsets buttonPadding =
