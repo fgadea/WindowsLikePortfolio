@@ -20,7 +20,30 @@ I'm Felipe Gadea, welcome to my personal website, this works like regular termin
 Type '-help' to show commands you can use
 ''';
 
-  static const String _help = "This is help";
+  static const String _help = '''
+These are the commands you can use:
+
+  'help'
+    It shows this message
+
+  'welcome'
+    It shows welcome message
+
+  'clr', 'clear'
+    It removes all from screen
+
+  'pwd'
+    It shows working directory
+
+  'ls', 'dir' 
+    It lists directories and files
+
+  'cd'
+    It changes from actual directory to other
+
+  'open'
+    It opens a compatible file
+''';
 
   static InterpreterModel interpreter(BuildContext context, String command) {
     String text = "";
