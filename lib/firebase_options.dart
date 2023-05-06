@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '958023250920',
     projectId: 'fgadea-dev',
     storageBucket: 'fgadea-dev.appspot.com',
-    iosClientId: '958023250920-ivub9ceqo07q8gs7vlorjo84a8stde25.apps.googleusercontent.com',
+    iosClientId:
+        '958023250920-ivub9ceqo07q8gs7vlorjo84a8stde25.apps.googleusercontent.com',
     iosBundleId: 'com.example.fgadeaDev',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '958023250920',
     projectId: 'fgadea-dev',
     storageBucket: 'fgadea-dev.appspot.com',
-    iosClientId: '958023250920-ivub9ceqo07q8gs7vlorjo84a8stde25.apps.googleusercontent.com',
+    iosClientId:
+        '958023250920-ivub9ceqo07q8gs7vlorjo84a8stde25.apps.googleusercontent.com',
     iosBundleId: 'com.example.fgadeaDev',
   );
 }
