@@ -7,23 +7,28 @@ class WindowTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        const SizedBox(
-          width: 4,
-        ),
-        Image.asset(FgadeaImages.prompt),
-        const SizedBox(
-          width: 8,
-        ),
-        Text(
-          title ?? "",
-          style: const TextStyle(
-            color: Colors.white,
+    return Flexible(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(
+            width: 4,
           ),
-        )
-      ],
+          Image.asset(FgadeaImages.prompt),
+          const SizedBox(
+            width: 8,
+          ),
+          Flexible(
+            child: Text(
+              title ?? "",
+              style: const TextStyle(
+                color: Colors.white,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

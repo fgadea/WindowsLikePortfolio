@@ -7,15 +7,46 @@ import 'application_filesystem.dart';
 class CommandPrompt {
   static AppDirectory prevDir = getDirectory();
   static AppDirectory dir = getDirectory();
-  static const String _welcome = '''
+  static const String _welcomeASCII = '''
 ██╗  ██╗███████╗██╗     ██╗      ██████╗ 
 ██║  ██║██╔════╝██║     ██║     ██╔═══██╗
 ███████║█████╗  ██║     ██║     ██║   ██║
 ██╔══██║██╔══╝  ██║     ██║     ██║   ██║
 ██║  ██║███████╗███████╗███████╗╚██████╔╝
 ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝ 
-                                                                         
-I'm Felipe Gadea, welcome to my personal website, this works like regular terminal.
+
+
+''';
+
+  static const String _mobileWelcomeASCII = '''
+
+█  █ ████ █    █      ██
+█  █ █    █    █     █  █
+████ ██   █    █     █  █
+█  █ █    █    █     █  █
+█  █ ████ ████ █████  ██
+                        
+                                                                                                                                
+''';
+
+  static const String _mobileSmallWelcomeASCII = '''                  
+ _____     _ _     
+|  |  |___| | |___ 
+|     | -_| | | . |
+|__|__|___|_|_|___|
+                   
+                     
+''';
+
+  static const String _mobileSuperSmallWelcomeASCII = '''                  
+HELLO! 
+                   
+''';
+
+  static const String _welcomeMessage = '''
+I'm Felipe Gadea Llopis, @fgadea on GitHub and felipe-gadea-llopis on LinkedIn.
+
+Welcome to my personal website, this works like regular terminal.
 
 Type '-help' to show commands you can use
 ''';
@@ -52,7 +83,18 @@ These are the commands you can use:
     bool clear = false;
     switch (commands.first) {
       case "welcome":
-        text = _welcome;
+        if (MediaQuery.of(context).size.width > 600) {
+          text = _welcomeASCII;
+        } else if (MediaQuery.of(context).size.width > 350) {
+          text = _mobileWelcomeASCII;
+        } else if (MediaQuery.of(context).size.width > 280) {
+          text = _mobileSmallWelcomeASCII;
+        } else {
+          text = _mobileSuperSmallWelcomeASCII;
+        }
+
+        text += _welcomeMessage;
+
         break;
       case "clr":
       case "clear":

@@ -1,4 +1,4 @@
-import 'package:fgadea.dev/features/home/presentation/widgets/window_content.dart';
+import 'package:fgadea.dev/features/flbash_terminal/presentation/page/flutter_shell.dart';
 import 'package:fgadea.dev/features/home/presentation/widgets/window_title_bar.dart';
 import 'package:fgadea.dev/widgets/fgadea_box_decorations.dart';
 import 'package:fgadea.dev/widgets/fgadea_colors.dart';
@@ -27,7 +27,8 @@ class _HomePageBigState extends State<HomePageBig> {
               child: Column(
                 children: const [
                   WindowTitleBar(),
-                  WindowContent(),
+                  FlutterShell()
+                  //WindowContent(),
                 ],
               ),
             ),

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "958023250920",
+    "project_id": "fgadea-dev",
+    "storage_bucket": "fgadea-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958023250920:android:173d50cc4ab63fcb08aa5d",
+        "android_client_info": {
+          "package_name": "com.example.fgadea.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958023250920-91mk36gdhvsht1i4nk53aans8vh9fpuh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDN5yKc628iOO9w9CfHBsmV8xGWUNY85E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958023250920-91mk36gdhvsht1i4nk53aans8vh9fpuh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "958023250920-ivub9ceqo07q8gs7vlorjo84a8stde25.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fgadeaDev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
