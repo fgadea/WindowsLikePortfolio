@@ -14,11 +14,11 @@ class WindowTitleBar extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Container(
         color: FgadeaColors.barColor,
-        child: Padding(
-          padding: const EdgeInsets.all(2.0),
+        child: const Padding(
+          padding: EdgeInsets.all(2.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               WindowTitle(title: "Command prompt - fgadea.dev"),
               WindowButtons()
             ],

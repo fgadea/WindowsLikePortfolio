@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fgadea.dev/features/home/presentation/pages/home_page_big.dart';
+import 'package:fgadea.dev/features/home/presentation/widgets/bottom_menu.dart';
+import 'package:fgadea.dev/widgets/fgadea_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import '' if (dart.library.html) 'dart:html';
@@ -46,13 +48,13 @@ class _HomePage extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      const Scaffold(
-        body: HomePageBig(),
-      ),
-      Material(
-        color: Colors.white.withAlpha(0),
+    return Scaffold(
+      body: const HomePageBig(),
+      bottomSheet: const BottomMenu(),
+      bottomNavigationBar: Container(
+        color: FgadeaColors.desktopColor,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
@@ -67,7 +69,7 @@ class _HomePage extends State<HomePage> {
             ),
           ],
         ),
-      )
-    ]);
+      ),
+    );
   }
 }
