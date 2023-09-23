@@ -17,19 +17,22 @@ class _HomePageBigState extends State<HomePageBig> {
     return Container(
       color: FgadeaColors.desktopColor,
       child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 800, maxHeight: 600),
-          child: Container(
-            decoration: FgadeaBoxDecorations.mainWindowDecoration,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 60),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 800, maxHeight: 600),
             child: Container(
-              decoration: FgadeaBoxDecorations.windowDecoration,
-              padding: const EdgeInsets.all(4),
-              child: Column(
-                children: const [
-                  WindowTitleBar(),
-                  FlutterShell()
-                  //WindowContent(),
-                ],
+              decoration: FgadeaBoxDecorations.mainWindowDecoration,
+              child: Container(
+                decoration: FgadeaBoxDecorations.windowDecoration,
+                padding: const EdgeInsets.all(4),
+                child: Column(
+                  children: const [
+                    WindowTitleBar(),
+                    FlutterShell()
+                    //WindowContent(),
+                  ],
+                ),
               ),
             ),
           ),
