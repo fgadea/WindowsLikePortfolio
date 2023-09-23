@@ -49,7 +49,7 @@ class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: HomePageBig(),
+      body: const HomePageBig(),
       bottomSheet: const BottomMenu(),
       bottomNavigationBar: Container(
         color: FgadeaColors.desktopColor,

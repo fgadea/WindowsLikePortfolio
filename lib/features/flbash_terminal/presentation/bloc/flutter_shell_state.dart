@@ -5,6 +5,7 @@ abstract class FlutterShellState {
   final TextEditingController inputFieldController =
       TextEditingController(text: "fgadea.dev:/> ");
   final ScrollController listController = ScrollController();
+  final FocusNode focusNode = FocusNode();
   final List<String> shellData = [
     'welcome',
   ];

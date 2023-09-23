@@ -1,6 +1,8 @@
+import 'package:fgadea.dev/features/flbash_terminal/presentation/bloc/flutter_shell_bloc.dart';
 import 'package:fgadea.dev/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'firebase_options.dart';
 
 class MyPowerfulFonts {
@@ -41,7 +43,8 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
-        backgroundColor: Colors.black,
+        colorScheme:
+            Theme.of(context).colorScheme.copyWith(background: Colors.black),
         canvasColor: Colors.black,
         fontFamily: MyPowerfulFonts.flexyIbmVgaFont,
         textTheme: const TextTheme(
@@ -62,7 +65,10 @@ class MyApp extends StatelessWidget {
           labelSmall: TextStyle(color: Colors.green, fontSize: 22),
         ),
       ),
-      home: const HomePage(),
+      home: BlocProvider(
+        create: ((BuildContext context) => FlutterShellBloc()),
+        child: const HomePage(),
+      ),
     );
   }
 }

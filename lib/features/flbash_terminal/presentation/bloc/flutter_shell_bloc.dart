@@ -1,7 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:fgadea.dev/common/command_prompt_commands.dart';
 import 'package:flutter/widgets.dart';
-import 'package:meta/meta.dart';
 
 part 'flutter_shell_event.dart';
 part 'flutter_shell_state.dart';
@@ -10,9 +8,17 @@ class FlutterShellBloc extends Bloc<FlutterShellEvent, FlutterShellState> {
   FlutterShellBloc() : super(FlutterShellInitial()) {
     on<FlutterShellEvent>((event, emit) {
       if (event is FlutterShellCommand) {
-        print(event.command);
         emit(FlutterShellInitial(
             history: state.shellData, command: event.command));
+      } else if (event is FlutterShellKeyPresed) {
+        state.inputFieldController.text += event.key;
+      } else if (event is FlutterShellDeleteKey) {
+        state.inputFieldController.text = state.inputFieldController.text
+            .substring(0, state.inputFieldController.text.length - 1);
+      } else if (event is FlutterShellIntroKey) {
+        emit(FlutterShellInitial(
+            history: state.shellData,
+            command: state.inputFieldController.text));
       } else {
         emit(FlutterShellInitial());
       }

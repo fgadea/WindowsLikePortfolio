@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FlutterShell extends StatelessWidget {
-  const FlutterShell({super.key});
+  final bool isMobile;
+  const FlutterShell({super.key, this.isMobile = false});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => FlutterShellBloc(),
+    return BlocProvider.value(
+      value: BlocProvider.of<FlutterShellBloc>(context),
       child: BlocConsumer<FlutterShellBloc, FlutterShellState>(
         listener: (context, state) {
           state.inputFieldController.selection = TextSelection.collapsed(
@@ -44,14 +45,21 @@ class FlutterShell extends StatelessWidget {
 
   Widget shellListViewBuilder(
       BuildContext context, int index, FlutterShellState state) {
-    if (index == state.shellData.length) return InputField(context, state);
+    if (index == state.shellData.length) {
+      return InputField(context, state);
+    }
     return CommandPrompt.interpreter(context, state.shellData[index]).text;
   }
 
   Widget InputField(BuildContext context, FlutterShellState state) {
+    state.inputFieldController.selection = state.inputFieldController.selection
+        .copyWith(extentOffset: state.inputFieldController.text.length);
     return TextField(
       controller: state.inputFieldController,
+      focusNode: state.focusNode,
       autofocus: true,
+      showCursor: true,
+      readOnly: isMobile,
       cursorColor: Colors.green,
       cursorWidth: 10,
       onEditingComplete: () {

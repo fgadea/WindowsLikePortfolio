@@ -8,6 +8,12 @@ class FgadeaBoxDecorations {
     color: FgadeaColors.windowColor,
     border: FgadeaBorders.windows95borderButton,
   );
+
+  static const BoxDecoration buttonSelectedDecoration = BoxDecoration(
+    color: FgadeaColors.shadowColor,
+    border: FgadeaBorders.windows95borderButton,
+  );
+
   static const BoxDecoration windowDecoration = BoxDecoration(
     color: FgadeaColors.windowColor,
     border: FgadeaBorders.windows95border,

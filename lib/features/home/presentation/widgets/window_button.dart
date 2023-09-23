@@ -5,7 +5,16 @@ import '../../../../widgets/fgadea_box_decorations.dart';
 class WindowButton extends StatelessWidget {
   final Function()? onPressed;
   final Widget? buttonIcon;
-  const WindowButton({super.key, this.onPressed, this.buttonIcon});
+  final double width;
+  final double heigth;
+  final bool isSelected;
+  const WindowButton(
+      {super.key,
+      this.onPressed,
+      this.buttonIcon,
+      this.width = 32,
+      this.heigth = 28,
+      this.isSelected = false});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +26,11 @@ class WindowButton extends StatelessWidget {
         highlightColor: Colors.black.withAlpha(60),
         onTap: onPressed,
         child: Ink(
-          width: 32,
-          height: 28,
-          decoration: FgadeaBoxDecorations.buttonDecoration,
+          width: width,
+          height: heigth,
+          decoration: isSelected
+              ? FgadeaBoxDecorations.buttonSelectedDecoration
+              : FgadeaBoxDecorations.buttonDecoration,
           child: buttonIcon,
         ),
       ),
