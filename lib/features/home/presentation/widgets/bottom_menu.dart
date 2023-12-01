@@ -1,3 +1,4 @@
+import 'package:fgadea.dev/features/code_listing/presentation/page/code_listing_page.dart';
 import 'package:fgadea.dev/features/home/presentation/widgets/window_button.dart';
 import 'package:fgadea.dev/widgets/fgadea_colors.dart';
 import 'package:fgadea.dev/widgets/fgadea_dialogs.dart';
@@ -44,7 +45,12 @@ class BottomMenu extends StatelessWidget {
                         height: 40,
                         width: 40,
                         child: WindowButton(
-                          onPressed: () => dialog(context),
+                          onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CodeListingPage(),
+                            ),
+                          ),
                           buttonIcon: const Icon(Icons.code_sharp),
                         ),
                       ),

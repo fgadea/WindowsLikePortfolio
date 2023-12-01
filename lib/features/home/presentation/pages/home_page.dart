@@ -4,6 +4,7 @@ import 'package:fgadea.dev/features/home/presentation/widgets/bottom_menu.dart';
 import 'package:fgadea.dev/widgets/fgadea_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+// ignore: unused_import
 import '' if (dart.library.html) 'dart:html';
 
 class HomePage extends StatefulWidget {
