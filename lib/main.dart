@@ -1,4 +1,3 @@
-import 'package:fgadea.dev/features/code_listing/presentation/page/code_listing_page.dart';
 import 'package:fgadea.dev/features/flbash_terminal/presentation/bloc/flutter_shell_bloc.dart';
 import 'package:fgadea.dev/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +44,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
         colorScheme:
-            Theme.of(context).colorScheme.copyWith(background: Colors.black),
+            Theme.of(context).colorScheme.copyWith(surface: Colors.black),
         canvasColor: Colors.black,
         fontFamily: MyPowerfulFonts.flexyIbmVgaFont,
         textTheme: const TextTheme(

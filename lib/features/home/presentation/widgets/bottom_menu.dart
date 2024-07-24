@@ -48,7 +48,7 @@ class BottomMenu extends StatelessWidget {
                           onPressed: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => CodeListingPage(),
+                              builder: (context) => const CodeListingPage(),
                             ),
                           ),
                           buttonIcon: const Icon(Icons.code_sharp),
