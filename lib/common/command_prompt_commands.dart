@@ -1,4 +1,4 @@
-import 'package:fgadea.dev/models/iterpreter_model.dart';
+import 'package:fgadea_dev/models/iterpreter_model.dart';
 import 'package:flutter/material.dart';
 
 import '../models/app_directory.dart';
@@ -7,20 +7,74 @@ import 'application_filesystem.dart';
 class CommandPrompt {
   static AppDirectory prevDir = getDirectory();
   static AppDirectory dir = getDirectory();
-  static const String _welcome = '''
+  static const String _welcomeASCII = '''
 ██╗  ██╗███████╗██╗     ██╗      ██████╗ 
 ██║  ██║██╔════╝██║     ██║     ██╔═══██╗
 ███████║█████╗  ██║     ██║     ██║   ██║
 ██╔══██║██╔══╝  ██║     ██║     ██║   ██║
 ██║  ██║███████╗███████╗███████╗╚██████╔╝
 ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝ 
-                                                                         
-I'm Felipe Gadea, welcome to my personal website, this works like regular terminal.
+
+
+''';
+
+  static const String _mobileWelcomeASCII = '''
+
+█  █ ████ █    █      ██
+█  █ █    █    █     █  █
+████ ██   █    █     █  █
+█  █ █    █    █     █  █
+█  █ ████ ████ █████  ██
+                        
+                                                                                                                                
+''';
+
+  static const String _mobileSmallWelcomeASCII = '''
+ _____     _ _     
+|  |  |___| | |___ 
+|     | -_| | | . |
+|__|__|___|_|_|___|
+                   
+                     
+''';
+
+  static const String _mobileSuperSmallWelcomeASCII = '''
+HELLO! 
+                   
+''';
+
+  static const String _welcomeMessage = '''
+I'm Felipe Gadea Llopis, @fgadea on GitHub and felipe-gadea-llopis on LinkedIn.
+
+Welcome to my personal website, this works like regular terminal.
 
 Type '-help' to show commands you can use
 ''';
 
-  static const String _help = "This is help";
+  static const String _help = '''
+These are the commands you can use:
+
+  'help'
+    It shows this message
+
+  'welcome'
+    It shows welcome message
+
+  'clr', 'clear'
+    It removes all from screen
+
+  'pwd'
+    It shows working directory
+
+  'ls', 'dir' 
+    It lists directories and files
+
+  'cd'
+    It changes from actual directory to other
+
+  'open'
+    It opens a compatible file
+''';
 
   static InterpreterModel interpreter(BuildContext context, String command) {
     String text = "";
@@ -29,7 +83,18 @@ Type '-help' to show commands you can use
     bool clear = false;
     switch (commands.first) {
       case "welcome":
-        text = _welcome;
+        if (MediaQuery.of(context).size.width > 600) {
+          text = _welcomeASCII;
+        } else if (MediaQuery.of(context).size.width > 350) {
+          text = _mobileWelcomeASCII;
+        } else if (MediaQuery.of(context).size.width > 280) {
+          text = _mobileSmallWelcomeASCII;
+        } else {
+          text = _mobileSuperSmallWelcomeASCII;
+        }
+
+        text += _welcomeMessage;
+
         break;
       case "clr":
       case "clear":
@@ -62,6 +127,7 @@ Type '-help' to show commands you can use
             ),
           );
           if (finalDir == null) break;
+          prevDir = dir;
           dir = finalDir;
         }
         text = "\nDirectory: ${dir.path}\n";

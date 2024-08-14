@@ -1,5 +1,9 @@
-import 'package:fgadea.dev/features/home/presentation/pages/home_page.dart';
+import 'package:fgadea_dev/features/flbash_terminal/presentation/bloc/flutter_shell_bloc.dart';
+import 'package:fgadea_dev/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'firebase_options.dart';
 
 class MyPowerfulFonts {
   static String earlyGameBoy = 'Early GameBoy';
@@ -12,7 +16,11 @@ class MyPowerfulFonts {
   static String flexyIbmVgaFont = 'Flexi_IBM_VGA_False';
 }
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -23,7 +31,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'f.gadea.dev',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -35,7 +43,8 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
-        backgroundColor: Colors.black,
+        colorScheme:
+            Theme.of(context).colorScheme.copyWith(surface: Colors.black),
         canvasColor: Colors.black,
         fontFamily: MyPowerfulFonts.flexyIbmVgaFont,
         textTheme: const TextTheme(
@@ -56,7 +65,10 @@ class MyApp extends StatelessWidget {
           labelSmall: TextStyle(color: Colors.green, fontSize: 22),
         ),
       ),
-      home: const HomePage(),
+      home: BlocProvider(
+        create: ((BuildContext context) => FlutterShellBloc()),
+        child: const HomePage(),
+      ),
     );
   }
 }

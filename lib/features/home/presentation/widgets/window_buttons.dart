@@ -1,6 +1,6 @@
-import 'package:fgadea.dev/features/home/presentation/widgets/window_button.dart';
+import 'package:fgadea_dev/widgets/fgadea_dialogs.dart';
+import 'package:fgadea_dev/features/home/presentation/widgets/window_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class WindowButtons extends StatelessWidget {
   final EdgeInsets buttonPadding =
@@ -15,23 +15,30 @@ class WindowButtons extends StatelessWidget {
       children: [
         Padding(
           padding: buttonPadding,
-          child: const WindowButton(
-            buttonIcon: Icon(Icons.square_outlined),
-          ),
+          child: WindowButton(
+              buttonIcon: const Icon(Icons.square_outlined),
+              onPressed: () => dialog(context)),
         ),
         Padding(
           padding: buttonPadding,
-          child: const WindowButton(
-            buttonIcon: Icon(Icons.minimize),
-          ),
+          child: WindowButton(
+              buttonIcon: const Icon(Icons.minimize),
+              onPressed: () => dialog(context)),
         ),
         Padding(
           padding: buttonPadding,
-          child: const WindowButton(
-            buttonIcon: Icon(Icons.close),
-          ),
+          child: WindowButton(
+              buttonIcon: const Icon(Icons.close),
+              onPressed: () => dialog(context)),
         )
       ],
     );
   }
+
+  dialog(BuildContext context) => FgadeaDialogs.defaultDialog(
+        context,
+        "fgadea_dev",
+        "This button does not have any functionality yet.",
+        "OK",
+      );
 }
