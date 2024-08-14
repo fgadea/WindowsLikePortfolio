@@ -24,51 +24,74 @@ class HomePageBig extends StatelessWidget {
                           defaultTargetPlatform == TargetPlatform.iOS) &&
                       constraints.maxWidth / constraints.maxHeight < 1) ||
                   development) {
-                return Column(
-                  children: [
-                    Flexible(
-                      child: ConstrainedBox(
-                        constraints:
-                            const BoxConstraints(maxWidth: 800, maxHeight: 600),
-                        child: Container(
-                          decoration: FgadeaBoxDecorations.mainWindowDecoration,
-                          child: Container(
-                            decoration: FgadeaBoxDecorations.windowDecoration,
-                            padding: const EdgeInsets.all(4),
-                            child: const Column(
-                              children: [
-                                WindowTitleBar(),
-                                FlutterShell(
-                                  isMobile: true,
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const CustomKeyboard()
-                  ],
-                );
+                return const MobileView();
               }
-              return ConstrainedBox(
-                constraints:
-                    const BoxConstraints(maxWidth: 800, maxHeight: 600),
-                child: Container(
-                  decoration: FgadeaBoxDecorations.mainWindowDecoration,
-                  child: Container(
-                    decoration: FgadeaBoxDecorations.windowDecoration,
-                    padding: const EdgeInsets.all(4),
-                    child: const Column(
-                      children: [WindowTitleBar(), FlutterShell()],
-                    ),
-                  ),
-                ),
-              );
+              return const DesktopView();
             },
           ),
         ),
       ),
+    );
+  }
+}
+
+class DesktopView extends StatelessWidget {
+  const DesktopView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 800, maxHeight: 600),
+      child: Container(
+        decoration: FgadeaBoxDecorations.mainWindowDecoration,
+        child: Container(
+          decoration: FgadeaBoxDecorations.windowDecoration,
+          padding: const EdgeInsets.all(4),
+          child: const Column(
+            children: [
+              WindowTitleBar(),
+              FlutterShell(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MobileView extends StatelessWidget {
+  const MobileView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Flexible(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 800, maxHeight: 600),
+            child: Container(
+              decoration: FgadeaBoxDecorations.mainWindowDecoration,
+              child: Container(
+                decoration: FgadeaBoxDecorations.windowDecoration,
+                padding: const EdgeInsets.all(4),
+                child: const Column(
+                  children: [
+                    WindowTitleBar(),
+                    FlutterShell(
+                      isMobile: true,
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        const CustomKeyboard()
+      ],
     );
   }
 }
