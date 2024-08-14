@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fgadea.dev">
+    package="com.example.fgadea_dev">
    <application
-        android:label="fgadea.dev"
+        android:label="fgadea_dev"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

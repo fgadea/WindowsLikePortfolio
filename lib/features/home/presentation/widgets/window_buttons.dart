@@ -1,5 +1,5 @@
-import 'package:fgadea.dev/widgets/fgadea_dialogs.dart';
-import 'package:fgadea.dev/features/home/presentation/widgets/window_button.dart';
+import 'package:fgadea_dev/widgets/fgadea_dialogs.dart';
+import 'package:fgadea_dev/features/home/presentation/widgets/window_button.dart';
 import 'package:flutter/material.dart';
 
 class WindowButtons extends StatelessWidget {
@@ -37,7 +37,7 @@ class WindowButtons extends StatelessWidget {
 
   dialog(BuildContext context) => FgadeaDialogs.defaultDialog(
         context,
-        "fgadea.dev",
+        "fgadea_dev",
         "This button does not have any functionality yet.",
         "OK",
       );

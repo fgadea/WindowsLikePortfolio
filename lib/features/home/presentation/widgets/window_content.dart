@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:fgadea.dev/common/command_prompt_commands.dart';
-import 'package:fgadea.dev/widgets/fgadea_box_decorations.dart';
+import 'package:fgadea_dev/common/command_prompt_commands.dart';
+import 'package:fgadea_dev/widgets/fgadea_box_decorations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,7 +20,7 @@ class _WindowContentState extends State<WindowContent> {
   final ScrollController promptScrollController = ScrollController();
   String promptInput = "_";
   String userInput = "";
-  String userName = "fgadea.dev>";
+  String userName = "fgadea_dev>";
   List<Text> lines = [];
   bool isVisible = false;
   @override

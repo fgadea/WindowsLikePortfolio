@@ -1,6 +1,6 @@
-import 'package:fgadea.dev/features/home/presentation/widgets/keyboard_button.dart';
-import 'package:fgadea.dev/widgets/fgadea_box_decorations.dart';
-import 'package:fgadea.dev/widgets/fgadea_styles.dart';
+import 'package:fgadea_dev/features/home/presentation/widgets/keyboard_button.dart';
+import 'package:fgadea_dev/widgets/fgadea_box_decorations.dart';
+import 'package:fgadea_dev/widgets/fgadea_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomKeyboard extends StatelessWidget {

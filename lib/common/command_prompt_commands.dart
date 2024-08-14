@@ -1,4 +1,4 @@
-import 'package:fgadea.dev/models/iterpreter_model.dart';
+import 'package:fgadea_dev/models/iterpreter_model.dart';
 import 'package:flutter/material.dart';
 
 import '../models/app_directory.dart';
@@ -29,7 +29,7 @@ class CommandPrompt {
                                                                                                                                 
 ''';
 
-  static const String _mobileSmallWelcomeASCII = '''                  
+  static const String _mobileSmallWelcomeASCII = '''
  _____     _ _     
 |  |  |___| | |___ 
 |     | -_| | | . |
@@ -38,7 +38,7 @@ class CommandPrompt {
                      
 ''';
 
-  static const String _mobileSuperSmallWelcomeASCII = '''                  
+  static const String _mobileSuperSmallWelcomeASCII = '''
 HELLO! 
                    
 ''';

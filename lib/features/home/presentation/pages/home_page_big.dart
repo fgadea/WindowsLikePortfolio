@@ -1,8 +1,8 @@
-import 'package:fgadea.dev/features/flbash_terminal/presentation/page/flutter_shell.dart';
-import 'package:fgadea.dev/features/home/presentation/widgets/custom_keyboard.dart';
-import 'package:fgadea.dev/features/home/presentation/widgets/window_title_bar.dart';
-import 'package:fgadea.dev/widgets/fgadea_box_decorations.dart';
-import 'package:fgadea.dev/widgets/fgadea_colors.dart';
+import 'package:fgadea_dev/features/flbash_terminal/presentation/page/flutter_shell.dart';
+import 'package:fgadea_dev/features/home/presentation/widgets/custom_keyboard.dart';
+import 'package:fgadea_dev/features/home/presentation/widgets/window_title_bar.dart';
+import 'package:fgadea_dev/widgets/fgadea_box_decorations.dart';
+import 'package:fgadea_dev/widgets/fgadea_colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

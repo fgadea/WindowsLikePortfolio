@@ -1,7 +1,7 @@
-import 'package:fgadea.dev/features/code_listing/presentation/page/code_listing_page.dart';
-import 'package:fgadea.dev/features/home/presentation/widgets/window_button.dart';
-import 'package:fgadea.dev/widgets/fgadea_colors.dart';
-import 'package:fgadea.dev/widgets/fgadea_dialogs.dart';
+import 'package:fgadea_dev/features/code_listing/presentation/page/code_listing_page.dart';
+import 'package:fgadea_dev/features/home/presentation/widgets/window_button.dart';
+import 'package:fgadea_dev/widgets/fgadea_colors.dart';
+import 'package:fgadea_dev/widgets/fgadea_dialogs.dart';
 import 'package:flutter/material.dart';
 
 class BottomMenu extends StatelessWidget {
@@ -128,7 +128,7 @@ class BottomMenu extends StatelessWidget {
 
   dialog(BuildContext context) => FgadeaDialogs.defaultDialog(
         context,
-        "fgadea.dev",
+        "fgadea_dev",
         "This button does not have any functionality yet.",
         "OK",
       );

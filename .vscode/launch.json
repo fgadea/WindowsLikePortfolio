@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "fgadea.dev",
+            "name": "fgadea_dev",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "fgadea.dev (profile mode)",
+            "name": "fgadea_dev (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "fgadea.dev (release mode)",
+            "name": "fgadea_dev (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

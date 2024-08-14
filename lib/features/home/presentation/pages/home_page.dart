@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fgadea.dev/features/home/presentation/pages/home_page_big.dart';
-import 'package:fgadea.dev/features/home/presentation/widgets/bottom_menu.dart';
-import 'package:fgadea.dev/widgets/fgadea_colors.dart';
+import 'package:fgadea_dev/features/home/presentation/pages/home_page_big.dart';
+import 'package:fgadea_dev/features/home/presentation/widgets/bottom_menu.dart';
+import 'package:fgadea_dev/widgets/fgadea_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 // ignore: unused_import

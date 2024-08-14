@@ -1,6 +1,6 @@
 {
-    "name": "fgadea.dev",
-    "short_name": "fgadea.dev",
+    "name": "fgadea_dev",
+    "short_name": "fgadea_dev",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

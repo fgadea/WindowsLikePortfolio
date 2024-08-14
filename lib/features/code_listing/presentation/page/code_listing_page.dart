@@ -1,7 +1,7 @@
-import 'package:fgadea.dev/features/home/presentation/widgets/window_button.dart';
-import 'package:fgadea.dev/features/home/presentation/widgets/window_title.dart';
-import 'package:fgadea.dev/widgets/fgadea_box_decorations.dart';
-import 'package:fgadea.dev/widgets/fgadea_colors.dart';
+import 'package:fgadea_dev/features/home/presentation/widgets/window_button.dart';
+import 'package:fgadea_dev/features/home/presentation/widgets/window_title.dart';
+import 'package:fgadea_dev/widgets/fgadea_box_decorations.dart';
+import 'package:fgadea_dev/widgets/fgadea_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_highlight/themes/tomorrow-night-eighties.dart';
@@ -54,7 +54,7 @@ class _CodeListingPage extends State<CodeListingPage> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   const WindowTitle(
-                                      title: "Code window - fgadea.dev"),
+                                      title: "Code window - fgadea_dev"),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(
                                         vertical: 1, horizontal: 2),

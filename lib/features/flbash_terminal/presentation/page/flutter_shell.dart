@@ -1,5 +1,5 @@
-import 'package:fgadea.dev/common/command_prompt_commands.dart';
-import 'package:fgadea.dev/features/flbash_terminal/presentation/bloc/flutter_shell_bloc.dart';
+import 'package:fgadea_dev/common/command_prompt_commands.dart';
+import 'package:fgadea_dev/features/flbash_terminal/presentation/bloc/flutter_shell_bloc.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
