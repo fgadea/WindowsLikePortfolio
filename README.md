@@ -1,6 +1,6 @@
-# fgadea_dev
+# Windows Like Portfolio
 
-This is my personal web page writed with flutter.
+This is a web app that imitates windows 9X experience for showing portfolio projects.
 
 ## Status: WIP
 
